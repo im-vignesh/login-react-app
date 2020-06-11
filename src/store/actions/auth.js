@@ -126,7 +126,6 @@ export const authViaGithub = (code) => {
             "client_secret":process.env.REACT_APP_GITHUB_CLIENT_SECRET,
             "code":code
         }
-        console.log("Github data :", data)
         const options = {
             "headers":{
                 "Access-Control-Allow-Origin":"*",
@@ -184,7 +183,6 @@ export const authViaLinkedIn = (code) => {
                 "Content-Type": "application/x-www-form-urlencoded"
             }
         }
-        console.log("LinkedIn data :", data)
         axios.post("https://cors-anywhere.herokuapp.com/https://www.linkedin.com/oauth/v2/accessToken",querystring.stringify(data),options).then(
             res => {
                 dispatch(authViaLinkedInSuccess(res.data.access_token))
@@ -201,12 +199,12 @@ export const authViaLinkedIn = (code) => {
 }
 
 export const logout = () => {
-    console.log("Logging out");
     localStorage.removeItem('access_token');
     localStorage.removeItem('expires_in');
     localStorage.removeItem('signed_in_via');
     localStorage.removeItem('token_type');
     localStorage.removeItem('username');
+    localStorage.removeItem('userdata');
     return {
         type: actionTypes.AUTH_LOGOUT
     };
@@ -214,7 +212,6 @@ export const logout = () => {
 
 export const authCheckState = () => {
     return dispatch => {
-        console.log("Trying to auto sign up")
         const token = localStorage.getItem('access_token');
         const signedInVia = localStorage.getItem("signed_in_via");
         if (signedInVia === "basicauth"){

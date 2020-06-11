@@ -33,7 +33,6 @@ export const fetchGithubDetails = () => {
             }
         }
         axios.get("https://api.github.com/user",options).then(res=>{
-            console.log(res)
             localStorage.setItem("username",res.data.login);
             dispatch(fetchGithubDetailsSuccess(res.data.name));
         }).catch( err => {
@@ -72,7 +71,6 @@ export const fetchLinkedInDetails = () =>{
             }
         }
         axios.get("https://cors-anywhere.herokuapp.com/https://api.linkedin.com/v2/me",options).then(res=>{
-            console.log(res)
             dispatch(fetchLinkedInDetailsSuccess(res.data.localizedFirstName))
         }).catch( err => {
             dispatch(fetchLinkedInDetailsFail(err.response.data))
@@ -140,10 +138,8 @@ export const UpdateUserInfo = () => {
         }
         login_axios.post("/login", querystring.stringify(data),options).then(res=>{
             dispatch(UpdateUserInfoSuccess((res.data)));
-            console.log("Updated Successfully")
         }).catch(err=>{
             dispatch(UpdateUserInfoFail(err.response.data))
-            console.log("Update Failed")
         });
     }
 }
@@ -171,7 +167,6 @@ export const SetPasswordFail = (error) => {
 export const setPassword = (email, password) => {
     return dispatch => {
         dispatch(SetPasswordStart());
-        console.log("Email,Cccc",email,password)
         if(email==="" || email===null){
             dispatch(SetPasswordFail("Email is not associated with your account. Email is required to set a password"));
             return

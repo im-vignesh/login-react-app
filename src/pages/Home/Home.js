@@ -19,7 +19,6 @@ class Home extends Component {
     componentDidMount() {
         const signed_in_via = localStorage.getItem("signed_in_via")
         if (!this.state.fetched) {
-            console.log("executed only once")
             switch (signed_in_via) {
                 case "github":
                     this.props.onFetchGithubDetails();
@@ -48,7 +47,6 @@ class Home extends Component {
     }
     onSetPhoneNumberHandler = (event) => {
         event.preventDefault();
-        console.log("YOu clicke me fukcj")
         this.props.onSetPhoneNumber(this.props.id, this.state.phone_number);
         this.setState(updateObject(this.state, { "phone_number": "" }));
     }
@@ -62,12 +60,10 @@ class Home extends Component {
             );
         }
         if (!this.props.isAuthenticated) {
-            console.log("let Me Reidrect you to home")
             authRedirect = <Redirect to={this.props.authRedirectPath} />
         }
         let body = null;
         if (this.props.loading) {
-            console.log(this.props.loading_message);
             body = <div className={styles.Home}><p className={styles.LoadingMsg}>{this.props.loading_message}</p></div>
         } else {
             if (this.props.setPassword) {
