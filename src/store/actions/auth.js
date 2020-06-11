@@ -136,7 +136,7 @@ export const authViaGithub = (code) => {
                 localStorage.setItem("signed_in_via", "github");
                 localStorage.setItem("access_token",res.data.access_token);
                 localStorage.setItem("token_type", res.data.token_type);
-                window.opener.location="http://localhost:3001/home"
+                window.opener.location="https://login-app-react-web.herokuapp.com/home"
                 window.self.close();
             }
         ).catch( err => {

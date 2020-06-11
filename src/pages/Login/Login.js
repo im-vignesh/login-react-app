@@ -102,7 +102,7 @@ class Login extends Component {
                     target="popup"
                     onClick={(e) => { this.handlePopUp(e, "https://github.com/login/oauth/authorize?scope=user:email&client_id=b8abeaff4fc40acf7bec") }}><FontAwesomeIcon icon={faGithub} /> Github</a> &nbsp;
                   <a
-                    href="https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=86l6pvr93njbqg&redirect_uri=http://localhost:3001/login?medium=linkedin&state=d33781d77472211740e75992a4b449f9369dd806&scope=r_liteprofile%20r_emailaddress"
+                    href="https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=86l6pvr93njbqg&redirect_uri=https://login-app-react-web.herokuapp.com/login?medium=linkedin&state=d33781d77472211740e75992a4b449f9369dd806&scope=r_liteprofile%20r_emailaddress"
                     target="popup"
                     onClick={(e) => { this.handlePopUp(e, "https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=86l6pvr93njbqg&redirect_uri=http%3A%2F%2Flocalhost%3A3001%2Flogin%3Fmedium%3Dlinkedin&state=d33781d77472211740e75992a4b449f9369dd806&scope=r_liteprofile%20r_emailaddress") }}><FontAwesomeIcon icon={faLinkedin} /> LinkedIn</a> &nbsp;
               </FormGroup>
