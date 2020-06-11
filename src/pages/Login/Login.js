@@ -104,7 +104,7 @@ class Login extends Component {
                   <a
                     href="https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=86l6pvr93njbqg&redirect_uri=https://login-app-react-web.herokuapp.com/login?medium=linkedin&state=d33781d77472211740e75992a4b449f9369dd806&scope=r_liteprofile%20r_emailaddress"
                     target="popup"
-                    onClick={(e) => { this.handlePopUp(e, "https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=86l6pvr93njbqg&redirect_uri=http%3A%2F%2Flocalhost%3A3001%2Flogin%3Fmedium%3Dlinkedin&state=d33781d77472211740e75992a4b449f9369dd806&scope=r_liteprofile%20r_emailaddress") }}><FontAwesomeIcon icon={faLinkedin} /> LinkedIn</a> &nbsp;
+                    onClick={(e) => { this.handlePopUp(e, "https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=86l6pvr93njbqg&redirect_uri=https%3A%2F%2Flogin-app-react-web.herokuapp.com%2Flogin%3Fmedium%3Dlinkedin&state=d33781d77472211740e75992a4b449f9369dd806&scope=r_liteprofile%20r_emailaddress") }}><FontAwesomeIcon icon={faLinkedin} /> LinkedIn</a> &nbsp;
               </FormGroup>
                 {errorMessage}
                 <center><Button color="primary" disabled={this.props.isLoading} type="submit">Sign In</Button></center>
