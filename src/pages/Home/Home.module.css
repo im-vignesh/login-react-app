@@ -1,0 +1,55 @@
+.Home {
+    position:fixed;
+    top: 40%;
+    left: 50%;
+    width:30em;
+    height:18em;
+    margin-top: -9em; /*set to a negative number 1/2 of your height*/
+    margin-left: -15em; /*set to a negative number 1/2 of your width*/
+    border: 1px solid #ccc;
+    background-color: #f3f3f3;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+.WelcomeMsg{
+    padding-left: 8em;
+}
+
+.LoadingMsg{
+    padding-left: 10em;
+}
+
+.Error {
+    font-size: 0.95em;
+    color: red;
+    padding-left: 45px;
+}
+
+.ChangePasswordButton {
+    font-size: 0.8em;
+}
+
+.PasswordHolder {
+    width: 150px;
+}
+
+.PasswordHolder::placeholder{
+    font-size: 0.8em;
+}
+
+.ChangePasswordLabel{
+    font-size: 0.9em;
+    margin-left: 15px;
+}
+
+.PhoneNumberHolder{
+    width: 150px;
+}
+
+.PhoneNumberHolder::-webkit-inner-spin-button, 
+.PhoneNumberHolder::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}

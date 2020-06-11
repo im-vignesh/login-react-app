@@ -1,0 +1,13 @@
+.SearchBox {
+    margin-top:5%;
+}
+
+.SearchButton {
+    padding: 0px 12px;
+}
+.SearchBoxTextInput{}
+.SearchBoxTextInput::-webkit-inner-spin-button, 
+.SearchBoxTextInput::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
