@@ -171,7 +171,7 @@ export const authViaLinkedIn = (code) => {
         var data = {
             "grant_type":"authorization_code",
             "code":code,
-            "redirect_uri": "http://localhost:3001/login?medium=linkedin",
+            "redirect_uri": "https://login-app-react-web.herokuapp.com/login?medium=linkedin",
             "client_id":"86l6pvr93njbqg",
             "client_secret":"ieFOXSg2F70KKkOB"
         }
@@ -186,7 +186,7 @@ export const authViaLinkedIn = (code) => {
                 localStorage.setItem("signed_in_via", "linkedin");
                 localStorage.setItem("access_token",res.data.access_token);
                 localStorage.setItem("expires_in", res.data.expires_in);
-                window.opener.location="http://localhost:3001/home"
+                window.opener.location="https://login-app-react-web.herokuapp.com/home"
                 window.self.close();
             }
         ).catch( err => {
