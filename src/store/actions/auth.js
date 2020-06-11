@@ -177,10 +177,11 @@ export const authViaLinkedIn = (code) => {
         }
         const options = {
             "headers":{
+                "Access-Control-Allow-Origin":"*",
                 "Content-Type": "application/x-www-form-urlencoded"
             }
         }
-        axios.post("https://www.linkedin.com/oauth/v2/accessToken",querystring.stringify(data),options).then(
+        axios.post("https://cors-anywhere.herokuapp.com/https://www.linkedin.com/oauth/v2/accessToken",querystring.stringify(data),options).then(
             res => {
                 dispatch(authViaLinkedInSuccess(res.data.access_token))
                 localStorage.setItem("signed_in_via", "linkedin");
