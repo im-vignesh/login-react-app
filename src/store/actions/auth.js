@@ -122,8 +122,8 @@ export const authViaGithub = (code) => {
     return dispatch => {
         dispatch(authViaGithubStart())
         var data = {
-            "client_id":process.env.GITHUB_CLIENT_ID,
-            "client_secret":process.env.GITHUB_CLIENT_SECRET,
+            "client_id":process.env.REACT_APP_GITHUB_CLIENT_ID,
+            "client_secret":process.env.REACT_APP_GITHUB_CLIENT_SECRET,
             "code":code
         }
         console.log("Github data :", data)
@@ -175,8 +175,8 @@ export const authViaLinkedIn = (code) => {
             "grant_type":"authorization_code",
             "code":code,
             "redirect_uri": "https://login-app-react-web.herokuapp.com/login?medium=linkedin",
-            "client_id":process.env.LINKED_IN_CLIENT_ID,
-            "client_secret":process.env.LINKED_IN_CLIENT_SECRET
+            "client_id":process.env.REACT_APP_LINKED_IN_CLIENT_ID,
+            "client_secret":process.env.REACT_APP_LINKED_IN_CLIENT_SECRET
         }
         const options = {
             "headers":{
