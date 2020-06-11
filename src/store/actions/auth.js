@@ -2,6 +2,8 @@ import * as actionTypes from './actionTypes';
 import axios from 'axios';
 import login_axios from '../../login-axios';
 import querystring from 'querystring';
+import 'dotenv/config';
+
 export const authStart = () => {
     return {
         type: actionTypes.AUTH_START
@@ -120,10 +122,11 @@ export const authViaGithub = (code) => {
     return dispatch => {
         dispatch(authViaGithubStart())
         var data = {
-            "client_id":"b8abeaff4fc40acf7bec",
-            "client_secret":"6c0f7ad4f63eed3a0035a893bad39f06fda7004a",
+            "client_id":process.env.GITHUB_CLIENT_ID,
+            "client_secret":process.env.GITHUB_CLIENT_SECRET,
             "code":code
         }
+        console.log("Github data :", data)
         const options = {
             "headers":{
                 "Access-Control-Allow-Origin":"*",
@@ -172,8 +175,8 @@ export const authViaLinkedIn = (code) => {
             "grant_type":"authorization_code",
             "code":code,
             "redirect_uri": "https://login-app-react-web.herokuapp.com/login?medium=linkedin",
-            "client_id":"86l6pvr93njbqg",
-            "client_secret":"ieFOXSg2F70KKkOB"
+            "client_id":process.env.LINKED_IN_CLIENT_ID,
+            "client_secret":process.env.LINKED_IN_CLIENT_SECRET
         }
         const options = {
             "headers":{
@@ -181,6 +184,7 @@ export const authViaLinkedIn = (code) => {
                 "Content-Type": "application/x-www-form-urlencoded"
             }
         }
+        console.log("LinkedIn data :", data)
         axios.post("https://cors-anywhere.herokuapp.com/https://www.linkedin.com/oauth/v2/accessToken",querystring.stringify(data),options).then(
             res => {
                 dispatch(authViaLinkedInSuccess(res.data.access_token))
